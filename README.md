@@ -1,3 +1,16 @@
+## install Python 3.7.10
+```bash
+wget http://www.python.org/ftp/python/3.7.10/Python-3.7.10.tgz
+tar -zxvf Python-3.7.10.tgz
+cd Python-3.7.10
+mkdir ~/.localpython
+./configure --prefix=/home/asmo/.localpython
+make
+make install
+```
+
+## get data
+```bash
 !wget https://www.dropbox.com/s/ppyp3izcb1us8hb/training_sample.csv?dl=1
 !mv training_sample.csv?dl=1 Data/training_sample.csv
 
@@ -9,11 +22,16 @@
 
 !wget https://www.dropbox.com/s/ppyp3izcb1us8hb/training_sample.csv?dl=1
 !mv training_sample.csv?dl=1 Data/training_sample.csv
+```
 
-
-
-
+## dependencies
+```bash
 pip install -r requirements.txt
+```
 
+## set huggingface token
+```bash
 huggingface-cli login
+```
 
+## run job
