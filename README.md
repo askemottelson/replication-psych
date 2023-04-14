@@ -27,6 +27,7 @@ make install
 ## dependencies
 ```bash
 pip install -r requirements.txt
+pip install 'huggingface_hub[cli,torch]'
 ```
 
 ## set huggingface token

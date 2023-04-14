@@ -1,3 +1,11 @@
+import huggingface_hub as hh
+
+file = open('/home/asmo/hf.token', mode='r')
+token = file.read()
+file.close()
+
+hh.login(token)
+
 from config import *
 
 # setting up data
