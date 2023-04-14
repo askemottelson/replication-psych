@@ -1,10 +1,10 @@
 import huggingface_hub as hh
 
 file = open('/home/asmo/hf.token', mode='r')
-token = file.read()
+token = str(file.read())
 file.close()
 
-hh.login(token)
+hh.login(token=token)
 
 from config import *
 
