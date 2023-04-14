@@ -1,7 +1,12 @@
+import re
+import httplib
+
+httplib._is_legal_header_name = re.compile(r':|\A[^:\s][^:\r\n]*\Z').match
+
 import huggingface_hub as hh
 
 file = open('/home/asmo/hf.token', mode='r')
-token = str(file.read())
+token = str(file.read()).strip()
 file.close()
 
 hh.login(token=token)
