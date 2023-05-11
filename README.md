@@ -1,13 +1,5 @@
-## install Python 3.7.10
-```bash
-wget http://www.python.org/ftp/python/3.7.10/Python-3.7.10.tgz
-tar -zxvf Python-3.7.10.tgz
-cd Python-3.7.10
-mkdir ~/.localpython
-./configure --prefix=/home/asmo/.localpython
-make
-make install
-```
+## python version
+>=3.7.10
 
 ## get data
 ```bash
@@ -36,3 +28,6 @@ huggingface-cli login
 ```
 
 ## run job
+```
+gpu.job
+```
