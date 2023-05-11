@@ -1,5 +1,5 @@
 ## python version
->=3.7.10
+`>=3.7.10`
 
 ## get data
 ```bash
