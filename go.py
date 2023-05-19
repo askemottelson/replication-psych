@@ -1,4 +1,16 @@
 from config import *
+from pynvml import *
+
+# utilization functions
+
+def gpu_utilization():
+  nvmlInit()
+  handle = nvmlDeviceGetHandleByIndex(0)
+  info = nvmlDeviceGetMemoryInfo(handle)
+  print(f"Used GPU memory so far: {info.used//1024**2} MB")
+
+
+gpu_utilization()
 
 # setting up data
 
@@ -137,17 +149,22 @@ model = AutoModelForSequenceClassification.from_pretrained(
 
 ###
 
+gpu_utilization()
+
 training_args = TrainingArguments(
     output_dir="deberta-replication",
     learning_rate=5e-7,
-    per_device_train_batch_size=2,
-    per_device_eval_batch_size=2,
+    per_device_train_batch_size=1,
+    per_device_eval_batch_size=1,
     num_train_epochs=100,
+    eval_steps=100,
     weight_decay=0.0005,
     evaluation_strategy="epoch",
     save_strategy="epoch",
     load_best_model_at_end=True,
     push_to_hub=False,
+    gradient_accumulation_steps=2,
+    gradient_checkpointing=True
 )
 
 trainer = Trainer(
@@ -162,5 +179,7 @@ trainer = Trainer(
 
 
 ####
+
+gpu_utilization()
 
 trainer.train()
