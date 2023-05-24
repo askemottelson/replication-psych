@@ -95,8 +95,9 @@ model_name = "domenicrosati/deberta-v3-large-dapt-tapt-scientific-papers-pubmed-
 
 
 from transformers import AutoTokenizer, AutoModel, pipeline
+torch.cuda.empty_cache()
 
-tokenizer = AutoTokenizer.from_pretrained(model_name)
+tokenizer = AutoTokenizer.from_pretrained(model_name, model_max_length=512)
 
 ######
 
@@ -156,9 +157,10 @@ training_args = TrainingArguments(
     learning_rate=5e-7,
     per_device_train_batch_size=1,
     per_device_eval_batch_size=1,
-    num_train_epochs=100,
-    eval_steps=100,
+    num_train_epochs=10,
+    eval_steps=10,
     weight_decay=0.0005,
+    fp16=True,
     evaluation_strategy="epoch",
     save_strategy="epoch",
     load_best_model_at_end=True,
