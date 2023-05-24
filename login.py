@@ -1,6 +1,9 @@
 import huggingface_hub as hh
+import os
 
-file = open('/home/asmo/hf.token', mode='r')
+os.chdir("../")
+
+file = open('hf.token', mode='r')
 token = str(file.read()).strip()
 file.close()
 

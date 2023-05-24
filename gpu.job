@@ -11,15 +11,15 @@ echo "Running on $(hostname):"
 module load Anaconda3/
 eval "$(conda shell.bash hook)"
 conda activate reppsych
-pip install pynvml
-pip install packaging
-pip install tqdm
-pip install requests
-pip install yaml
-pip install colorama
-pip install lxml
-pip install bitarray
-pip install cffi
-pip install cython
-pip install -r requirements.txt
+# pip install pynvml
+# pip install packaging
+# pip install tqdm
+# pip install requests
+# pip install yaml
+# pip install colorama
+# pip install lxml
+# pip install bitarray
+# pip install cffi
+# pip install cython
+# pip install -r requirements.txt
 python go.py

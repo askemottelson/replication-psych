@@ -18,6 +18,8 @@
 
 ## dependencies
 ```bash
+conda install -c anaconda scikit-learn
+
 pip install -r requirements.txt
 pip install 'huggingface_hub[cli,torch]'
 ```
